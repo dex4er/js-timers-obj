@@ -1,0 +1,32 @@
+{
+  "name": "timers-obj",
+  "version": "0.0.1",
+  "description": "Timers as objects",
+  "main": "lib/timers-obj.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dex4er/js-timers-obj"
+  },
+  "keywords": [
+    "objects",
+    "timers"
+  ],
+  "author": "Piotr Roszatycki",
+  "license": "Artistic-2.0",
+  "bugs": {
+    "url": "https://github.com/dex4er/js-timers-obj/issues"
+  },
+  "homepage": "http://github.com/dex4er/js-timers-obj",
+  "dependencies": {},
+  "devDependencies": {
+    "standard": "^7.1.2",
+    "tap": "^6.3.0"
+  },
+  "scripts": {
+    "test": "tap --timeout 20 test/*.js",
+    "test-coverage": "tap --coverage --timeout 120 test/*.js",
+    "test-standard": "standard",
+    "test-standard-coverage": "npm run test-standard && npm run test-coverage"
+  },
+  "bin": {}
+}
