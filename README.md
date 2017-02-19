@@ -1,9 +1,9 @@
 ## timers-obj
 
-[![Build Status](https://secure.travis-ci.org/dex4er/js-timers-obj.svg)](http://travis-ci.org/dex4er/js-timers-obj) [![Coverage Status](https://coveralls.io/repos/github/dex4er/js-timers-obj/badge.svg)](https://coveralls.io/github/dex4er/js-timers-obj) [![npm](https://img.shields.io/npm/v/timers-obj.svg?maxAge=2592000)](https://www.npmjs.com/package/timers-obj)
+[![Build Status](https://secure.travis-ci.org/dex4er/js-timers-obj.svg)](http://travis-ci.org/dex4er/js-timers-obj) [![Coverage Status](https://coveralls.io/repos/github/dex4er/js-timers-obj/badge.svg)](https://coveralls.io/github/dex4er/js-timers-obj) [![npm](https://img.shields.io/npm/v/timers-obj.svg)](https://www.npmjs.com/package/timers-obj)
 
-This module provides the wrappers for standard `timers` module so all timers
-(immediate, interval and timeout) can be used as objects.
+This module provides the wrappers for standard [timers](https://nodejs.org/api/timers.html)
+module so all timers (immediate, interval and timeout) can be used as objects.
 
 For constructors, callback argument is after delay argument so it provides more
 convenient syntax for [CoffeeScript](http://coffeescript.org/) and
@@ -14,6 +14,11 @@ timer = timers.interval 1000, ->
   console.log 'Time is ticking'
 ```
 
+### Requirements
+
+This module requires ES6 with Node >= 4. For Node < 6 `--harmony` flag is
+required.
+
 ### Installation
 
 ```shell
@@ -21,8 +26,6 @@ npm install timers-obj
 ```
 
 ### Usage
-
-Require in your script
 
 ```js
 const timers = require('timers-obj')

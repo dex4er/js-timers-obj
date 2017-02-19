@@ -12,21 +12,28 @@
     "timers"
   ],
   "author": "Piotr Roszatycki",
-  "license": "Artistic-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dex4er/js-timers-obj/issues"
   },
   "homepage": "http://github.com/dex4er/js-timers-obj",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "dependencies": {},
   "devDependencies": {
-    "standard": "^7.1.2",
-    "tap": "^6.3.0"
+    "chai": "^3.5.0",
+    "standard": "^8.6.0",
+    "tap": "^10.2.0",
+    "tap-given": "^0.2.0"
   },
   "scripts": {
     "test": "tap --timeout 20 test/*.js",
-    "test-coverage": "tap --coverage --timeout 120 test/*.js",
+    "test-coverage": "nyc tap --timeout 120 test/*.js",
     "test-standard": "standard",
     "test-standard-coverage": "npm run test-standard && npm run test-coverage"
   },
-  "bin": {}
+  "nyc": {
+    "exclude": []
+  }
 }

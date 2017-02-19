@@ -1,89 +1,127 @@
 'use strict'
 
-var t = require('tap')
-var timersObj = require('../lib/timers-obj')
+const timersObj = require('../lib/timers-obj')
 
-var TIMEOUT = 10000
+/* global Feature, Scenario, Given, When, Then */
+const t = require('tap')
+require('tap-given')(t)
+require('chai').should()
 
-t.plan(6)
+Feature('Test timers-obj module', () => {
+  Scenario('Create and call immediate timer', function () {
+    Given('callback with arguments for timer', () => {
+      this.callback = (done, a, b, c) => {
+        this.arguments = [a, b, c]
+        done()
+      }
+    })
 
-t.test('Create and call immediate timer', {timeout: TIMEOUT}, function (t) {
-  t.plan(4)
+    When('I create immediate timer', done => {
+      this.timer = timersObj.immediate(this.callback, done, 1, 2, 3)
+    })
 
-  var timer = timersObj.immediate(function (a, b, c) {
-    t.pass('immediate timer is called')
-    t.same([a, b, c], [1, 2, 3], 'immediate timer is called with correct arguments')
-    timer.remove()
-    t.ok(timer, 'immediate timer is removed')
-    t.end()
-  }, 1, 2, 3)
+    Then('timer called callback with correct arguments', () => {
+      this.arguments.should.deep.equal([1, 2, 3])
+    })
 
-  t.ok(timer, 'immediate timer is created')
-})
-
-t.test('Create and remove immediate timer', {timeout: TIMEOUT}, function (t) {
-  t.plan(2)
-
-  var timer = timersObj.immediate(function () {
-    t.fail('immediate timer is called')
+    Then('timer can be removed', () => {
+      this.timer.remove()
+    })
   })
 
-  t.ok(timer, 'immediate timer is created')
-  timer.remove()
-  t.ok(timer, 'immediate timer is removed')
-  t.end()
-})
+  Scenario('Create and remove immediate timer', () => {
+    Given('callback for timer', () => {
+      this.called = false
+      this.callback = () => {
+        this.called = true
+      }
+    })
 
-t.test('Create and call interval timer', {timeout: TIMEOUT}, function (t) {
-  t.plan(4)
+    When('I create immediate timer which is immediately removed', () => {
+      this.timer = timersObj.immediate(this.callback)
+      this.timer.remove()
+    })
 
-  var timer = timersObj.interval(1, function (a, b, c) {
-    t.pass('interval timer is called')
-    t.same([a, b, c], [1, 2, 3], 'immediate timer is called with correct arguments')
-    timer.remove()
-    t.ok(timer, 'interval timer is removed')
-    t.end()
-  }, 1, 2, 3)
-
-  t.ok(timer, 'interval timer is created')
-})
-
-t.test('Create and remove interval timer', {timeout: TIMEOUT}, function (t) {
-  t.plan(2)
-
-  var timer = timersObj.interval(1, function () {
-    t.fail('interval timer is called')
+    Then('callback is not called', () => {
+      this.called.should.be.false
+    })
   })
 
-  t.ok(timer, 'interval timer is created')
-  timer.remove()
-  t.ok(timer, 'interval timer is removed')
-  t.end()
-})
+  Scenario('Create and call interval timer', function () {
+    Given('callback with arguments for timer', () => {
+      this.callback = (done, a, b, c) => {
+        this.arguments = [a, b, c]
+        done()
+      }
+    })
 
-t.test('Create and call timeout timer', {timeout: TIMEOUT}, function (t) {
-  t.plan(4)
+    When('I create interval timer', done => {
+      this.timer = timersObj.interval(0, this.callback, done, 1, 2, 3)
+    })
 
-  var timer = timersObj.timeout(1, function (a, b, c) {
-    t.pass('timeout timer is called')
-    t.same([a, b, c], [1, 2, 3], 'immediate timer is called with correct arguments')
-    timer.remove()
-    t.ok(timer, 'timeout timer is removed')
-    t.end()
-  }, 1, 2, 3)
+    Then('timer called callback with correct arguments', () => {
+      this.arguments.should.deep.equal([1, 2, 3])
+    })
 
-  t.ok(timer, 'timeout timer is created')
-})
-
-t.test('Create and remove timeout timer', {timeout: TIMEOUT}, function (t) {
-  t.plan(2)
-
-  var timer = timersObj.timeout(1, function () {
-    t.fail('timeout timer is called')
+    Then('timer can be removed', () => {
+      this.timer.remove()
+    })
   })
 
-  t.ok(timer, 'timeout timer is created')
-  timer.remove()
-  t.ok(timer, 'timeout timer is removed')
-  t.end()
+  Scenario('Create and remove interval timer', () => {
+    Given('callback for timer', () => {
+      this.called = false
+      this.callback = () => {
+        this.called = true
+      }
+    })
+
+    When('I create interval timer which is immediately removed', () => {
+      this.timer = timersObj.interval(0, this.callback)
+      this.timer.remove()
+    })
+
+    Then('callback is not called', () => {
+      this.called.should.be.false
+    })
+  })
+
+  Scenario('Create and call timeout timer', function () {
+    Given('callback with arguments for timer', () => {
+      this.callback = (done, a, b, c) => {
+        this.arguments = [a, b, c]
+        done()
+      }
+    })
+
+    When('I create timeout timer', done => {
+      this.timer = timersObj.timeout(0, this.callback, done, 1, 2, 3)
+    })
+
+    Then('timer called callback with correct arguments', () => {
+      this.arguments.should.deep.equal([1, 2, 3])
+    })
+
+    Then('timer can be removed', () => {
+      this.timer.remove()
+    })
+  })
+
+  Scenario('Create and remove timeout timer', () => {
+    Given('callback for timer', () => {
+      this.called = false
+      this.callback = () => {
+        this.called = true
+      }
+    })
+
+    When('I create timeout timer which is immediately removed', () => {
+      this.timer = timersObj.timeout(0, this.callback)
+      this.timer.remove()
+    })
+
+    Then('callback is not called', () => {
+      this.called.should.be.false
+    })
+  })
 })
