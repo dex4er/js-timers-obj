@@ -23,15 +23,15 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.0.2",
+    "snazzy": "^7.0.0",
     "standard": "^10.0.2",
     "tap": "^10.5.1",
     "tap-given": "^0.4.1"
   },
   "scripts": {
-    "test": "tap --timeout 20 test/*.js",
-    "test-coverage": "nyc tap --timeout 120 test/*.js",
-    "test-standard": "standard",
-    "test-standard-coverage": "npm run test-standard && npm run test-coverage"
+    "test": "standard --verbose | snazzy && tap test/*.js",
+    "test-coverage": "npm test -- --coverage",
+    "test-onchange-lcovonly": "npm run -s test-coverage -- -R min --coverage-report lcovonly; onchange '**/*.js' -- npm run -s test-coverage -- -R min --coverage-report lcovonly"
   },
   "nyc": {
     "exclude": []
