@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.4 2017-06-22
+
+  * Minor refactoring for tests
+
 ## v0.0.3 2017-06-22
 
   * Upgrade: chai@4.0.2, standard@10.0.2 tap@10.5.1, tap-given@0.4.1
