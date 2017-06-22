@@ -5,7 +5,9 @@ const timersObj = require('../lib/timers-obj')
 /* global Feature, Scenario, Given, When, Then */
 const t = require('tap')
 require('tap-given')(t)
-require('chai').should()
+const chai = require('chai')
+chai.should()
+chai.use(require('dirty-chai'))
 
 Feature('Test timers-obj module', () => {
   Scenario('Create and call immediate timer', function () {
@@ -43,7 +45,7 @@ Feature('Test timers-obj module', () => {
     })
 
     Then('callback is not called', () => {
-      this.called.should.be.false
+      this.called.should.be.false()
     })
   })
 
@@ -82,7 +84,7 @@ Feature('Test timers-obj module', () => {
     })
 
     Then('callback is not called', () => {
-      this.called.should.be.false
+      this.called.should.be.false()
     })
   })
 
@@ -121,7 +123,7 @@ Feature('Test timers-obj module', () => {
     })
 
     Then('callback is not called', () => {
-      this.called.should.be.false
+      this.called.should.be.false()
     })
   })
 })
