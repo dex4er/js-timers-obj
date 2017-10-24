@@ -1,12 +1,12 @@
 #!/usr/bin/env coffee
 
-timers = require 'timers-obj'
+timers = require '../lib/timers-obj'
 
 ticker = timers.interval 1000, ->
-  console.log 'Tick'
+  console.info 'Tick'
 
 timers.timeout 5000, ->
   ticker.remove()
 
 timers.immediate ->
-  console.log 'Time is ticking...'
+  console.info 'Time is ticking...'
