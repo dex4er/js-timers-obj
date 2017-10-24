@@ -31,6 +31,12 @@ npm install timers-obj
 const timers = require('timers-obj')
 ```
 
+_Typescript:_
+
+```ts
+import * as timers from 'timers-obj'
+```
+
 #### immediate
 
 Create timer
