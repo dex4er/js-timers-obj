@@ -1,6 +1,6 @@
 {
   "name": "timers-obj",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Timers as objects",
   "main": "lib/timers-obj.js",
   "repository": {
@@ -22,6 +22,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/node": "^8.0.46",
     "chai": "^4.0.2",
     "dirty-chai": "^2.0.0",
     "snazzy": "^7.0.0",

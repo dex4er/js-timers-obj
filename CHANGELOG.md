@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.0 2017-10-24
+
+  * Removed `Obj` suffix from class names.
+  * Typescript: typings added.
+
 ## v0.0.4 2017-06-22
 
   * Minor refactoring for tests

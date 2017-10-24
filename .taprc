@@ -1,3 +1,5 @@
 {
-  "nodeArgs": ["--harmony"],
+  "color": false,
+  "nodeArgs": [],
+  "reporter": "classic"
 }
