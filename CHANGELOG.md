@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.1 2017-10-26
+
+  * typings field in package.json
+
 ## v0.1.0 2017-10-24
 
   * Removed `Obj` suffix from class names.

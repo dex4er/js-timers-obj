@@ -1,8 +1,9 @@
 {
   "name": "timers-obj",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Timers as objects",
   "main": "lib/timers-obj.js",
+  "typings": "lib/timers-obj.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/dex4er/js-timers-obj"
