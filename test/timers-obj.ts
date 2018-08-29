@@ -53,12 +53,16 @@ Feature('Test timers-obj module', () => {
   Scenario('Create and call interval timer', () => {
     let args: number[]
     let callback: timersObj.TimerCallback
+    let seen: boolean = false
     let timer: timersObj.Interval
 
     Given('callback with arguments for timer', () => {
       callback = (done: Mocha.Done, a: number, b: number, c: number) => {
-        args = [a, b, c]
-        done()
+        if (!seen) {
+          seen = true
+          args = [a, b, c]
+          done()
+        }
       }
     })
 

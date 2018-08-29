@@ -18,10 +18,11 @@ matrix:
     - node_js: "5"
       env: MOCHA_ARGS="--harmony --use_strict"
     - node_js: "4"
-      env: MOCHA_ARGS="--harmony --use_strict"
+      env: NPM_INSTALL='tslib' MOCHA_ARGS="--harmony --use_strict"
 
 install:
   - npm install
+  - if [ -n "$NPM_INSTALL" ]; then npm install $NPM_INSTALL; fi
   - if [ "$NPM_AUDIT" = true ]; then npm audit; fi
 
 script:
