@@ -10,6 +10,4 @@ export const Before: (callback: (this: Mocha.Context, done: Mocha.Done) => any) 
 export const After: (callback: (this: Mocha.Context, done: Mocha.Done) => any) => void = after
 
 import chai from 'chai'
-import chaiAsPromised from 'chai-as-promised'
-chai.use(chaiAsPromised)
 chai.should()

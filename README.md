@@ -28,6 +28,12 @@ required.
 npm install timers-obj
 ```
 
+_Additionally for Typescript:_
+
+```shell
+npm install -D @types/node
+```
+
 ## Usage
 
 ```js
@@ -40,7 +46,7 @@ _Typescript:_
 import timers from 'timers-obj'
 ```
 
-For transpiling this module with own settings:
+_For transpiling this module with own settings:_
 
 ```json
 {
