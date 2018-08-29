@@ -4,8 +4,9 @@
 [![Build Status](https://secure.travis-ci.org/dex4er/js-timers-obj.svg)](http://travis-ci.org/dex4er/js-timers-obj) [![Coverage Status](https://coveralls.io/repos/github/dex4er/js-timers-obj/badge.svg)](https://coveralls.io/github/dex4er/js-timers-obj) [![npm](https://img.shields.io/npm/v/timers-obj.svg)](https://www.npmjs.com/package/timers-obj)
 <!-- markdownlint-enable MD013 -->
 
-This module provides the wrappers for standard [timers](https://nodejs.org/api/timers.html)
-module so all timers (immediate, interval and timeout) can be used as objects.
+This module provides the wrappers for standard
+[timers](https://nodejs.org/api/timers.html) module so all timers (immediate,
+interval and timeout) can be used as objects.
 
 For constructors, callback argument is after delay argument so it provides more
 convenient syntax for [CoffeeScript](http://coffeescript.org/) and
@@ -37,6 +38,18 @@ _Typescript:_
 
 ```ts
 import timers from 'timers-obj'
+```
+
+For transpiling this module with own settings:
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "timers-obj": ["node_modules/timers-obj/src/timers-obj"]
+    }
+  }
+}
 ```
 
 ### immediate
