@@ -1,27 +1,21 @@
-'use strict'
+import { And, Feature, Given, Scenario, Then, When } from './lib/steps'
 
-const timersObj = require('../lib/timers-obj')
-
-const t = require('tap')
-require('tap-given')(t)
-const chai = require('chai')
-chai.should()
-chai.use(require('dirty-chai'))
+import * as timersObj from '../src/timers-obj'
 
 Feature('Test timers-obj module', () => {
   Scenario('Create and call immediate timer', () => {
-    let args
-    let callback
-    let timer
+    let args: number[]
+    let callback: timersObj.TimerCallback
+    let timer: timersObj.Immediate
 
     Given('callback with arguments for timer', () => {
-      callback = (done, a, b, c) => {
+      callback = (done: Mocha.Done, a: number, b: number, c: number) => {
         args = [a, b, c]
         done()
       }
     })
 
-    When('I create immediate timer', done => {
+    When('I create immediate timer', (done) => {
       timer = timersObj.immediate(callback, done, 1, 2, 3)
     })
 
@@ -35,14 +29,14 @@ Feature('Test timers-obj module', () => {
   })
 
   Scenario('Create and remove immediate timer', () => {
-    let callback
-    let called
-    let timer
+    let callback: timersObj.TimerCallback
+    let called: boolean
+    let timer: timersObj.Immediate
 
     Given('callback for timer', () => {
       called = false
       callback = () => {
-        this.called = true
+        called = true
       }
     })
 
@@ -52,23 +46,23 @@ Feature('Test timers-obj module', () => {
     })
 
     Then('callback is not called', () => {
-      called.should.be.false()
+      return called.should.be.false
     })
   })
 
   Scenario('Create and call interval timer', () => {
-    let args
-    let callback
-    let timer
+    let args: number[]
+    let callback: timersObj.TimerCallback
+    let timer: timersObj.Interval
 
     Given('callback with arguments for timer', () => {
-      callback = (done, a, b, c) => {
+      callback = (done: Mocha.Done, a: number, b: number, c: number) => {
         args = [a, b, c]
         done()
       }
     })
 
-    When('I create interval timer', done => {
+    When('I create interval timer', (done) => {
       timer = timersObj.interval(0, callback, done, 1, 2, 3)
     })
 
@@ -82,9 +76,9 @@ Feature('Test timers-obj module', () => {
   })
 
   Scenario('Create and remove interval timer', () => {
-    let callback
-    let called
-    let timer
+    let callback: timersObj.TimerCallback
+    let called: boolean = false
+    let timer: timersObj.Interval
 
     Given('callback for timer', () => {
       called = false
@@ -99,23 +93,23 @@ Feature('Test timers-obj module', () => {
     })
 
     Then('callback is not called', () => {
-      called.should.be.false()
+      return called.should.be.false
     })
   })
 
   Scenario('Create and call timeout timer', () => {
-    let args
-    let callback
-    let timer
+    let args: number[]
+    let callback: timersObj.TimerCallback
+    let timer: timersObj.Timeout
 
     Given('callback with arguments for timer', () => {
-      callback = (done, a, b, c) => {
+      callback = (done: Mocha.Done, a: number, b: number, c: number) => {
         args = [a, b, c]
         done()
       }
     })
 
-    When('I create timeout timer', done => {
+    When('I create timeout timer', (done) => {
       timer = timersObj.timeout(0, callback, done, 1, 2, 3)
     })
 
@@ -129,9 +123,9 @@ Feature('Test timers-obj module', () => {
   })
 
   Scenario('Create and remove timeout timer', () => {
-    let callback
-    let called
-    let timer
+    let callback: timersObj.TimerCallback
+    let called: boolean = false
+    let timer: timersObj.Timeout
 
     Given('callback for timer', () => {
       called = false
@@ -146,7 +140,7 @@ Feature('Test timers-obj module', () => {
     })
 
     Then('callback is not called', () => {
-      called.should.be.false()
+      return called.should.be.false
     })
   })
 })

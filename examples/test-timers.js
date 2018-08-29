@@ -4,7 +4,7 @@
 
 const timers = require('../lib/timers-obj')
 
-let ticker = timers.interval(1000, () => {
+const ticker = timers.interval(1000, () => {
   console.info('Tick')
 })
 

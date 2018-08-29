@@ -1,6 +1,8 @@
-## timers-obj
+# timers-obj
 
+<!-- markdownlint-disable MD013 -->
 [![Build Status](https://secure.travis-ci.org/dex4er/js-timers-obj.svg)](http://travis-ci.org/dex4er/js-timers-obj) [![Coverage Status](https://coveralls.io/repos/github/dex4er/js-timers-obj/badge.svg)](https://coveralls.io/github/dex4er/js-timers-obj) [![npm](https://img.shields.io/npm/v/timers-obj.svg)](https://www.npmjs.com/package/timers-obj)
+<!-- markdownlint-enable MD013 -->
 
 This module provides the wrappers for standard [timers](https://nodejs.org/api/timers.html)
 module so all timers (immediate, interval and timeout) can be used as objects.
@@ -14,18 +16,18 @@ timer = timers.interval 1000, ->
   console.log 'Time is ticking'
 ```
 
-### Requirements
+## Requirements
 
 This module requires ES6 with Node >= 4. For Node < 6 `--harmony` flag is
 required.
 
-### Installation
+## Installation
 
 ```shell
 npm install timers-obj
 ```
 
-### Usage
+## Usage
 
 ```js
 const timers = require('timers-obj')
@@ -34,10 +36,10 @@ const timers = require('timers-obj')
 _Typescript:_
 
 ```ts
-import * as timers from 'timers-obj'
+import timers from 'timers-obj'
 ```
 
-#### immediate
+### immediate
 
 Create timer
 
@@ -51,7 +53,7 @@ Remove timer
 timer.remove()
 ```
 
-#### interval
+### interval
 
 Create timer
 
@@ -65,7 +67,7 @@ Remove timer
 timer.remove()
 ```
 
-#### timeout
+### timeout
 
 Create timer
 
@@ -79,8 +81,8 @@ Remove timer
 timer.remove()
 ```
 
-### License
+## License
 
-Copyright (c) 2016-2017 Piotr Roszatycki <piotr.roszatycki@gmail.com>
+Copyright (c) 2016-2018 Piotr Roszatycki <piotr.roszatycki@gmail.com>
 
 [MIT](https://opensource.org/licenses/MIT)
