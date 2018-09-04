@@ -43,7 +43,13 @@ const timers = require('timers-obj')
 _Typescript:_
 
 ```ts
-import timers from 'timers-obj'
+import * as timers from 'timers-obj'
+```
+
+or:
+
+```ts
+import { Immediate, immediate, Interval, interval, Timeout, timeout } from 'timers-obj'
 ```
 
 _For transpiling this module with own settings:_
