@@ -19,8 +19,7 @@ timer = timers.interval 1000, ->
 
 ## Requirements
 
-This module requires ES6 with Node >= 4. For Node < 6 `--harmony` flag is
-required.
+This module requires Node >= 4. For Node < 6 `--harmony` flag is required.
 
 ## Installation
 

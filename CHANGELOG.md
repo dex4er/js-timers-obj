@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.2 2018-10-22
+
+* New typings for Node.
+
 ## v0.2.1 2018-09-04
 
 * Correct documentation about import.

@@ -3,7 +3,7 @@
 export type TimerCallback = (...args: any[]) => void
 
 export class Immediate {
-  protected timer?: NodeJS.Timer
+  protected timer?: NodeJS.Immediate
 
   constructor (callback: TimerCallback, ...args: any[]) {
     this.timer = setImmediate(callback, ...args)
@@ -18,7 +18,7 @@ export class Immediate {
 }
 
 export class Interval {
-  protected timer?: NodeJS.Timer
+  protected timer?: NodeJS.Timeout
 
   /**
    * @param delay - ms
@@ -36,7 +36,7 @@ export class Interval {
 }
 
 export class Timeout {
-  protected timer?: NodeJS.Timer
+  protected timer?: NodeJS.Timeout
 
   /**
    * @param delay - ms
