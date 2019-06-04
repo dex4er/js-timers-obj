@@ -1,1 +1,1 @@
-module.exports = require('./lib/timers-obj')
+module.exports = require("./lib/timers-obj")

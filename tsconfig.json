@@ -3,24 +3,17 @@
     "declaration": true,
     "esModuleInterop": true,
     "importHelpers": true,
-    "lib": [
-      "es6"
-    ],
+    "lib": ["es6"],
     "module": "commonjs",
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "./lib",
-    "target": "es6",
+    "sourceMap": true,
     "strict": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "target": "es6",
+    "typeRoots": ["node_modules/@types"]
   },
-  "exclude": [
-    "./examples/**/*",
-    "./lib/**/*",
-    "./test/**/*"
-  ]
+  "exclude": ["./examples/**/*", "./lib/**/*", "./test/**/*"]
 }
