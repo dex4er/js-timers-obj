@@ -1,7 +1,14 @@
 {
   "name": "timers-obj",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Timers as objects",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./lib/timers-obj.js",
+      "typings": "./lib/timers-obj.d.ts"
+    }
+  },
   "main": "lib/timers-obj.js",
   "typings": "lib/timers-obj.d.ts",
   "repository": {
@@ -19,45 +26,48 @@
   },
   "homepage": "http://github.com/dex4er/js-timers-obj",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=14.0.0"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/dirty-chai": "^2.0.0",
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.0.4",
-    "chai": "^4.2.0",
-    "coveralls": "^3.0.3",
-    "cross-env": "^5.2.0",
-    "dirty-chai": "^2.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-node": "^9.1.0",
-    "markdownlint-cli": "^0.16.0",
-    "mocha": "^6.1.4",
-    "nyc": "^14.1.1",
-    "prettier": "^1.17.1",
-    "shx": "^0.3.2",
-    "ts-node": "^8.2.0",
-    "tslint": "^5.17.0",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.1"
+    "@tsconfig/node14": "^1.0.1",
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.4",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "c8": "^7.10.0",
+    "chai": "^4.3.4",
+    "coffeescript": "^2.6.1",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsdoc": "^37.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "markdownlint-cli": "^0.29.0",
+    "mocha": "^9.1.3",
+    "mocha-steps": "^1.3.0",
+    "prettier": "^2.4.1",
+    "shx": "^0.3.3",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
   },
   "scripts": {
+    "build": "npm run compile",
     "compile": "tsc --pretty --project .",
-    "clean": "npm run clean:compile && npm run clean:coverage",
-    "clean:compile": "shx rm -rf lib",
-    "clean:coverage": "shx rm -rf coverage .nyc_output",
-    "lint": "npm run compile && tsc --pretty -p examples && tsc --pretty -p test && eslint . && tslint -t stylish -p . && tslint -t stylish -p examples && tslint -t stylish -p test && prettier --ignore-path .gitignore --list-different '**/*.{js,json,md,ts,yml}' && markdownlint \"*.md\"",
+    "clean": "shx rm -rf lib",
+    "lint": "npm run lint:tsc:src && npm run lint:tsc:test && npm run lint:tsc:examples && npm run lint:eslint && npm run lint:prettier && npm run lint:markdownlint",
+    "lint:tsc:examples": "tsc --noEmit --pretty --project examples",
+    "lint:tsc:src": "tsc --noEmit --pretty --project .",
+    "lint:tsc:test": "tsc --noEmit --pretty --project test",
+    "lint:eslint": "eslint --ext .js,.ts .",
+    "lint:prettier": "prettier --ignore-path .gitignore --list-different '**/*.{js,json,md,ts,yml}'",
+    "lint:markdownlint": "markdownlint \"*.md\"",
     "postpublish": "git tag v$npm_package_version -a -m \"Release v$npm_package_version\" && git push --tags",
-    "prepack": "npm run compile",
-    "prepublishOnly": "npm run test",
+    "prepublishOnly": "npm run build",
     "pretest": "npm run lint",
     "test": "npm run test:spec",
-    "test:spec": "npm run ts-mocha -- \"test/*.ts\"",
-    "test:coverage": "npm run clean:coverage && cross-env NYC=\"nyc --no-clean --reporter=lcov\" npm run test:spec && nyc report --reporter=text-summary --color",
-    "ts-mocha": "$NYC mocha --use_strict --throw-deprecation --require source-map-support/register --require ts-node/register --timeout 90000"
+    "test:spec": "mocha",
+    "test:coverage": "c8 --no-clean --reporter=lcov npm run test:spec && c8 report --reporter=text-summary --color"
   }
 }

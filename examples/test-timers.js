@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-"use strict"
-
-const timers = require("../lib/timers-obj")
+import * as timers from "timers-obj"
 
 const ticker = timers.interval(1000, () => {
   console.info("Tick")

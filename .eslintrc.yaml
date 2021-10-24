@@ -1,0 +1,21 @@
+# npm i -g eslint eslint-config-prettier eslint-plugin-import eslint-plugin-node eslint-plugin-promise
+
+env:
+  node: true
+
+extends:
+  - prettier
+
+parser: "@typescript-eslint/parser"
+
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module
+  extraFileExtensions:
+    - .mjs
+    - .mts
+
+plugins:
+  - "@typescript-eslint"
+  - import
+  - jsdoc

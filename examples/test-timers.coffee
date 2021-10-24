@@ -1,6 +1,6 @@
-#!/usr/bin/env coffee
+#!/usr/bin/env node_modules/.bin/coffee
 
-timers = require '../lib/timers-obj'
+timers = await import('../lib/timers-obj.js')
 
 ticker = timers.interval 1000, ->
   console.info 'Tick'

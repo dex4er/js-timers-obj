@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.0.0 2021-10-24
+
+- Convert to ESM module.
+- Requires Node >= 14.
+
 ## v1.0.0 2019-06-04
 
 - Dropped support for Node 4.
