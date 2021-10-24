@@ -2,7 +2,7 @@
 
 <!-- markdownlint-disable MD013 -->
 
-[![Build Status](https://secure.travis-ci.org/dex4er/js-timers-obj.svg)](http://travis-ci.org/dex4er/js-timers-obj) [![Coverage Status](https://coveralls.io/repos/github/dex4er/js-timers-obj/badge.svg)](https://coveralls.io/github/dex4er/js-timers-obj) [![npm](https://img.shields.io/npm/v/timers-obj.svg)](https://www.npmjs.com/package/timers-obj)
+[![Build Status](https://api.travis-ci.com/dex4er/js-timers-obj.svg)](https://app.travis-ci.com/github/dex4er/js-timers-obj) [![Coverage Status](https://coveralls.io/repos/github/dex4er/js-timers-obj/badge.svg)](https://coveralls.io/github/dex4er/js-timers-obj) [![npm](https://img.shields.io/npm/v/timers-obj.svg)](https://www.npmjs.com/package/timers-obj)
 
 <!-- markdownlint-enable MD013 -->
 
@@ -21,7 +21,7 @@ timer = timers.interval 1000, ->
 
 ## Requirements
 
-This module requires Node >= 6.
+This is ESM module which requires ES2020 and Node >= 14.
 
 ## Installation
 
@@ -38,18 +38,12 @@ npm install -D @types/node
 ## Usage
 
 ```js
-const timers = require("timers-obj")
-```
-
-_Typescript:_
-
-```ts
 import * as timers from "timers-obj"
 ```
 
 or:
 
-```ts
+```js
 import {Immediate, immediate, Interval, interval, Timeout, timeout} from "timers-obj"
 ```
 
@@ -97,6 +91,6 @@ timer.remove()
 
 ## License
 
-Copyright (c) 2016-2019 Piotr Roszatycki <piotr.roszatycki@gmail.com>
+Copyright (c) 2016-2021 Piotr Roszatycki <piotr.roszatycki@gmail.com>
 
 [MIT](https://opensource.org/licenses/MIT)

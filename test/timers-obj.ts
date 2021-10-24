@@ -1,11 +1,8 @@
-import chai, {expect} from "chai"
+import {expect} from "chai"
 
-import dirtyChai from "dirty-chai"
-chai.use(dirtyChai)
+import {And, Feature, Given, Scenario, Then, When} from "./lib/steps.js"
 
-import {And, Feature, Given, Scenario, Then, When} from "./lib/steps"
-
-import * as timersObj from "../src/timers-obj"
+import * as timersObj from "../src/timers-obj.js"
 
 Feature("Test timers-obj module", () => {
   Scenario("Create and call immediate timer", () => {
@@ -51,7 +48,7 @@ Feature("Test timers-obj module", () => {
     })
 
     Then("callback is not called", () => {
-      expect(called).to.be.false()
+      expect(called).to.be.false
     })
   })
 
@@ -102,7 +99,7 @@ Feature("Test timers-obj module", () => {
     })
 
     Then("callback is not called", () => {
-      expect(called).to.be.false()
+      expect(called).to.be.false
     })
   })
 
@@ -149,7 +146,7 @@ Feature("Test timers-obj module", () => {
     })
 
     Then("callback is not called", () => {
-      expect(called).to.be.false()
+      expect(called).to.be.false
     })
   })
 })
