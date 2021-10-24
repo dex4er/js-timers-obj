@@ -15,6 +15,8 @@ convenient syntax for [CoffeeScript](http://coffeescript.org/) and
 [LiveScript](http://livescript.net/), ie.:
 
 ```coffee
+timers = await import('timers-obj')
+
 timer = timers.interval 1000, ->
   console.log 'Time is ticking'
 ```
