@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as timers from "timers-obj"
+import * as timers from "../lib/timers-obj.js"
 
 const ticker = timers.interval(1000, () => {
   console.info("Tick")

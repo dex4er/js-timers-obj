@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.0 2024-06-26
+
+- Requires Node >= 16.
+
 ## v2.0.0 2021-10-24
 
 - Convert to ESM module.

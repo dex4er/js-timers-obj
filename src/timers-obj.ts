@@ -1,8 +1,8 @@
 /// <reference types="node" />
 
-// tslint:disable:max-classes-per-file
-
 export type TimerCallback = (...args: any[]) => void
+
+type ms = number
 
 export class Immediate {
   protected timer?: NodeJS.Immediate
@@ -25,7 +25,7 @@ export class Interval {
   /**
    * @param delay - ms
    */
-  constructor(delay: number, callback: TimerCallback, ...args: any[]) {
+  constructor(delay: ms, callback: TimerCallback, ...args: any[]) {
     this.timer = setInterval(callback, delay, ...args)
   }
 
@@ -43,7 +43,7 @@ export class Timeout {
   /**
    * @param delay - ms
    */
-  constructor(delay: number, callback: TimerCallback, ...args: any[]) {
+  constructor(delay: ms, callback: TimerCallback, ...args: any[]) {
     this.timer = setTimeout(callback, delay, ...args)
   }
 
@@ -62,13 +62,13 @@ export function immediate(callback: TimerCallback, ...args: any[]): Immediate {
 /**
  * @param delay - ms
  */
-export function interval(delay: number, callback: TimerCallback, ...args: any[]): Interval {
+export function interval(delay: ms, callback: TimerCallback, ...args: any[]): Interval {
   return new Interval(delay, callback, ...args)
 }
 
 /**
  * @param delay - ms
  */
-export function timeout(delay: number, callback: TimerCallback, ...args: any[]): Timeout {
+export function timeout(delay: ms, callback: TimerCallback, ...args: any[]): Timeout {
   return new Timeout(delay, callback, ...args)
 }

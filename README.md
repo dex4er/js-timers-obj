@@ -2,17 +2,21 @@
 
 <!-- markdownlint-disable MD013 -->
 
-[![Build Status](https://api.travis-ci.com/dex4er/js-timers-obj.svg)](https://app.travis-ci.com/github/dex4er/js-timers-obj) [![Coverage Status](https://coveralls.io/repos/github/dex4er/js-timers-obj/badge.svg)](https://coveralls.io/github/dex4er/js-timers-obj) [![npm](https://img.shields.io/npm/v/timers-obj.svg)](https://www.npmjs.com/package/timers-obj)
+[![GitHub](https://img.shields.io/github/v/release/dex4er/js-timers-obj?display_name=tag&sort=semver)](https://github.com/dex4er/js-timers-obj)
+[![CI](https://github.com/dex4er/js-timers-obj/actions/workflows/ci.yaml/badge.svg)](https://github.com/dex4er/js-timers-obj/actions/workflows/ci.yaml)
+[![Trunk Check](https://github.com/dex4er/js-timers-obj/actions/workflows/trunk.yaml/badge.svg)](https://github.com/dex4er/js-timers-obj/actions/workflows/trunk.yaml)
+[![Coverage Status](https://coveralls.io/repos/github/dex4er/js-timers-obj/badge.svg)](https://coveralls.io/github/dex4er/js-timers-obj)
+[![npm](https://img.shields.io/npm/v/timers-obj.svg)](https://www.npmjs.com/package/timers-obj)
 
 <!-- markdownlint-enable MD013 -->
 
-This module provides the wrappers for standard
+This module provides the wrappers for the standard
 [timers](https://nodejs.org/api/timers.html) module so all timers (immediate,
 interval and timeout) can be used as objects.
 
-For constructors, callback argument is after delay argument so it provides more
-convenient syntax for [CoffeeScript](http://coffeescript.org/) and
-[LiveScript](http://livescript.net/), ie.:
+For constructors, the callback argument is after `delay` argument so it
+provides more convenient syntax for [CoffeeScript](http://coffeescript.org/)
+and [LiveScript](http://livescript.net/), ie.:
 
 ```coffee
 timers = await import('timers-obj')
@@ -23,7 +27,7 @@ timer = timers.interval 1000, ->
 
 ## Requirements
 
-This is ESM module which requires ES2020 and Node >= 14.
+This is an ESM module that requires ES2021 and Node >= 16.
 
 ## Installation
 
@@ -93,6 +97,6 @@ timer.remove()
 
 ## License
 
-Copyright (c) 2016-2021 Piotr Roszatycki <piotr.roszatycki@gmail.com>
+Copyright (c) 2016-2024 Piotr Roszatycki <piotr.roszatycki@gmail.com>
 
 [MIT](https://opensource.org/licenses/MIT)
