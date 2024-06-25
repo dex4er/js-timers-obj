@@ -1,6 +1,6 @@
 {
   "name": "timers-obj",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Timers as objects",
   "type": "module",
   "exports": {
@@ -40,6 +40,7 @@
     "@typescript-eslint/parser": "^7.14.1",
     "c8": "^10.1.2",
     "chai": "^5.1.1",
+    "coffeescript": "^2.7.0",
     "coveralls": "^3.1.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
