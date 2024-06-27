@@ -1,15 +1,10 @@
 #!/usr/bin/env -S node --experimental-specifier-resolution=node --experimental-modules --no-warnings --loader ts-node/esm
 
 import * as timers from "../src/timers-obj.js"
+import {scheduler} from "node:timers/promises"
 
-const ticker = timers.interval(1000, () => {
+using _ticker = timers.interval(1000, () => {
   console.info("Tick")
 })
 
-timers.timeout(5000, () => {
-  ticker.close()
-})
-
-timers.immediate(() => {
-  console.info("Time is ticking...")
-})
+await scheduler.wait(5500)

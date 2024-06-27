@@ -25,8 +25,8 @@ Feature("Test timers-obj module", () => {
       expect(args).to.deep.equal([1, 2, 3])
     })
 
-    And("timer can be removed", () => {
-      timer.remove()
+    And("timer can be closed", () => {
+      timer.close()
     })
   })
 
@@ -42,9 +42,9 @@ Feature("Test timers-obj module", () => {
       }
     })
 
-    When("I create immediate timer which is immediately removed", () => {
+    When("I create immediate timer which is immediately closed", () => {
       timer = timersObj.immediate(callback)
-      timer.remove()
+      timer.close()
     })
 
     Then("callback is not called", () => {
@@ -76,8 +76,8 @@ Feature("Test timers-obj module", () => {
       expect(args).to.deep.equal([1, 2, 3])
     })
 
-    And("timer can be removed", () => {
-      timer.remove()
+    And("timer can be closed", () => {
+      timer.close()
     })
   })
 
@@ -93,9 +93,9 @@ Feature("Test timers-obj module", () => {
       }
     })
 
-    When("I create interval timer which is immediately removed", () => {
+    When("I create interval timer which is immediately closed", () => {
       timer = timersObj.interval(0, callback)
-      timer.remove()
+      timer.close()
     })
 
     Then("callback is not called", () => {
@@ -123,8 +123,8 @@ Feature("Test timers-obj module", () => {
       expect(args).to.deep.equal([1, 2, 3])
     })
 
-    And("timer can be removed", () => {
-      timer.remove()
+    And("timer can be closed", () => {
+      timer.close()
     })
   })
 
@@ -140,9 +140,9 @@ Feature("Test timers-obj module", () => {
       }
     })
 
-    When("I create timeout timer which is immediately removed", () => {
+    When("I create timeout timer which is immediately closed", () => {
       timer = timersObj.timeout(0, callback)
-      timer.remove()
+      timer.close()
     })
 
     Then("callback is not called", () => {

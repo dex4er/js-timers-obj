@@ -7,7 +7,7 @@ const ticker = timers.interval(1000, () => {
 })
 
 timers.timeout(5000, () => {
-  ticker.close()
+  ticker.unref()
 })
 
 timers.immediate(() => {

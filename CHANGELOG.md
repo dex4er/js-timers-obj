@@ -1,8 +1,10 @@
 # Changelog
 
-## v2.1.0 2024-06-26
+## v3.0.0 2024-06-26
 
 - Requires Node >= 16.
+- Breaking change: `remove` method is renamed to `close`.
+- New methods are added: `hasRef`, `ref`, `refresh`, `unref`.
 
 ## v2.0.0 2021-10-24
 

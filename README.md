@@ -14,9 +14,13 @@ This module provides the wrappers for the standard
 [timers](https://nodejs.org/api/timers.html) module so all timers (immediate,
 interval and timeout) can be used as objects.
 
+The classes are separate for each timer to prevent mistakes, ie. closing the
+wrong timer.
+
 For constructors, the callback argument is after `delay` argument so it
-provides more convenient syntax for [CoffeeScript](http://coffeescript.org/)
-and [LiveScript](http://livescript.net/), ie.:
+provides a more convenient syntax for
+[CoffeeScript](http://coffeescript.org/) and
+[LiveScript](http://livescript.net/), ie.:
 
 ```coffee
 timers = await import('timers-obj')
@@ -55,44 +59,78 @@ import {Immediate, immediate, Interval, interval, Timeout, timeout} from "timers
 
 ### immediate
 
-Create timer
+Creates timer with immediate callback.
 
 ```js
 const timer = timers.immediate(cb, [...args])
 ```
 
-Remove timer
-
-```js
-timer.remove()
-```
-
 ### interval
 
-Create timer
+Creates timer with callback run in intervals.
 
 ```js
 const timer = timers.interval(delay, cb, [...args])
 ```
 
-Remove timer
-
-```js
-timer.remove()
-```
-
 ### timeout
 
-Create timer
+Creates timer with callback run after timeout.
 
 ```js
 const timer = timers.timeout(delay, cb, [...args])
 ```
 
-Remove timer
+### close
+
+Closes timer.
 
 ```js
-timer.remove()
+timer.close()
+```
+
+### hasRef
+
+Returns `true` if the object will keep the Node.js event loop active.
+
+```js
+const hasRef = timer.hasRef()
+```
+
+### ref
+
+Requests that the Node.js event loop does not exit so long as the Timeout is
+active.
+
+```js
+timer.ref()
+```
+
+### unref
+
+Requests that the Node.js event loop exits even if the Timeout is active.
+
+```js
+timer.unref()
+```
+
+### refresh
+
+Sets the timer's start time to the current time. Only for interval and
+timeout timers.
+
+```js
+timer.refresh()
+```
+
+### [Symbol.dispose]
+
+Clears the timer at the end of a scope.
+
+```ts
+using timer = timers.immediate(cb, [...args])
+using timer = timers.interval(delay, cb, [...args])
+using timer = timers.timeout(delay, cb, [...args])
 ```
 
 ## License

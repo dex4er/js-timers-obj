@@ -11,11 +11,27 @@ export class Immediate {
     this.timer = setImmediate(callback, ...args)
   }
 
-  remove(): void {
+  close(): void {
     if (this.timer) {
       clearImmediate(this.timer)
       this.timer = undefined
     }
+  }
+
+  hasRef(): boolean {
+    return this.timer?.hasRef() || false
+  }
+
+  ref(): void {
+    this.timer?.ref()
+  }
+
+  unref(): void {
+    this.timer?.unref()
+  }
+
+  [Symbol.dispose]() {
+    this.close()
   }
 }
 
@@ -29,11 +45,31 @@ export class Interval {
     this.timer = setInterval(callback, delay, ...args)
   }
 
-  remove(): void {
+  close(): void {
     if (this.timer) {
       clearInterval(this.timer)
       this.timer = undefined
     }
+  }
+
+  hasRef(): boolean {
+    return this.timer?.hasRef() || false
+  }
+
+  ref(): void {
+    this.timer?.ref()
+  }
+
+  unref(): void {
+    this.timer?.unref()
+  }
+
+  refresh(): void {
+    this.timer?.refresh()
+  }
+
+  [Symbol.dispose]() {
+    this.close()
   }
 }
 
@@ -47,11 +83,31 @@ export class Timeout {
     this.timer = setTimeout(callback, delay, ...args)
   }
 
-  remove(): void {
+  close(): void {
     if (this.timer) {
       clearTimeout(this.timer)
       this.timer = undefined
     }
+  }
+
+  hasRef(): boolean {
+    return this.timer?.hasRef() || false
+  }
+
+  ref(): void {
+    this.timer?.ref()
+  }
+
+  unref(): void {
+    this.timer?.unref()
+  }
+
+  refresh(): void {
+    this.timer?.refresh()
+  }
+
+  [Symbol.dispose]() {
+    this.close()
   }
 }
 
