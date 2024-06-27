@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.1.0 2024-06-27
+
+- `close`, `ref`, `refresh` and `unref` return `this`.
+
 ## v3.0.0 2024-06-26
 
 - Requires Node >= 16.

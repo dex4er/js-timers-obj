@@ -11,23 +11,26 @@ export class Immediate {
     this.timer = setImmediate(callback, ...args)
   }
 
-  close(): void {
+  close(): this {
     if (this.timer) {
       clearImmediate(this.timer)
       this.timer = undefined
     }
+    return this
   }
 
   hasRef(): boolean {
     return this.timer?.hasRef() || false
   }
 
-  ref(): void {
+  ref(): this {
     this.timer?.ref()
+    return this
   }
 
-  unref(): void {
+  unref(): this {
     this.timer?.unref()
+    return this
   }
 
   [Symbol.dispose]() {
@@ -45,27 +48,31 @@ export class Interval {
     this.timer = setInterval(callback, delay, ...args)
   }
 
-  close(): void {
+  close(): this {
     if (this.timer) {
       clearInterval(this.timer)
       this.timer = undefined
     }
+    return this
   }
 
   hasRef(): boolean {
     return this.timer?.hasRef() || false
   }
 
-  ref(): void {
+  ref(): this {
     this.timer?.ref()
+    return this
   }
 
-  unref(): void {
+  unref(): this {
     this.timer?.unref()
+    return this
   }
 
-  refresh(): void {
+  refresh(): this {
     this.timer?.refresh()
+    return this
   }
 
   [Symbol.dispose]() {
@@ -83,27 +90,31 @@ export class Timeout {
     this.timer = setTimeout(callback, delay, ...args)
   }
 
-  close(): void {
+  close(): this {
     if (this.timer) {
       clearTimeout(this.timer)
       this.timer = undefined
     }
+    return this
   }
 
   hasRef(): boolean {
     return this.timer?.hasRef() || false
   }
 
-  ref(): void {
+  ref(): this {
     this.timer?.ref()
+    return this
   }
 
-  unref(): void {
+  unref(): this {
     this.timer?.unref()
+    return this
   }
 
-  refresh(): void {
+  refresh(): this {
     this.timer?.refresh()
+    return this
   }
 
   [Symbol.dispose]() {

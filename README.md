@@ -86,8 +86,10 @@ const timer = timers.timeout(delay, cb, [...args])
 Closes timer.
 
 ```js
-timer.close()
+timer = timer.close()
 ```
+
+The method returns this object.
 
 ### hasRef
 
@@ -103,16 +105,20 @@ Requests that the Node.js event loop does not exit so long as the Timeout is
 active.
 
 ```js
-timer.ref()
+timer = timer.ref()
 ```
+
+The method returns this object.
 
 ### unref
 
 Requests that the Node.js event loop exits even if the Timeout is active.
 
 ```js
-timer.unref()
+timer = timer.unref()
 ```
+
+The method returns this object.
 
 ### refresh
 
@@ -120,8 +126,10 @@ Sets the timer's start time to the current time. Only for interval and
 timeout timers.
 
 ```js
-timer.refresh()
+timer = timer.refresh()
 ```
+
+The method returns this object.
 
 ### [Symbol.dispose]
 
